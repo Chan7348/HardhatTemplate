@@ -1,6 +1,5 @@
 import { HardhatUserConfig, vars } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox-viem";
-import "@nomicfoundation/hardhat-viem";
+import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-foundry";
 const config: HardhatUserConfig = {
   solidity: {
@@ -17,8 +16,9 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       forking: {
-        url: "https://eth-mainnet.g.alchemy.com/v2/0bxYCEMVua9fTrQ8ZdjLmtneFjjI2HI_" || "", // ethereum
-        blockNumber: 19797228,
+        // url: "https://eth-mainnet.g.alchemy.com/v2/0bxYCEMVua9fTrQ8ZdjLmtneFjjI2HI_" || "", // ethereum
+        url: "https://blast-mainnet.infura.io/v3/9bffae8e7424498db9d2c180201a9b95" || "", // blast
+        // blockNumber: 5023190,
       },
       blockGasLimit: 60000000,
       // hardfork: "cancun",
@@ -42,6 +42,14 @@ const config: HardhatUserConfig = {
     base: {
       url: "https://base-mainnet.g.alchemy.com/v2/TGwFWGfUH96rmhISEJYNY1o1kTvqYasp" || "",
       accounts: [vars.get("TEST1_KEY"), vars.get("TEST2_KEY")],
+    },
+    blast: {
+      url: "https://blast-mainnet.infura.io/v3/9bffae8e7424498db9d2c180201a9b95" || "",
+      accounts: [vars.get("TEST1_KEY"), vars.get("TEST2_KEY")],
+    },
+    blastSepolia: {
+      url: "https://blast-sepolia.infura.io/v3/9bffae8e7424498db9d2c180201a9b95" || "",
+      accounts: [vars.get("TEST1_KEY"), vars.get("TEST2_KEY")],
     }
   },
   sourcify: {
@@ -53,6 +61,7 @@ const config: HardhatUserConfig = {
       sepolia: 'VK61M4154HUEBDRPEUZXF3MW2J7GSK9WJW',
       optimisticEthereum: '79WNIY53FCZY116W61ZN8DDTE1THBBVKN7',
       base: 'TJY2CHMTQMI1HF4WVQJES2CDVF4K733CUK',
+      blast : 'DSSX24X9RC6YEA2FVQBJ8DK79YGZXGWG43'
     }
   },
   // dodoc: {
