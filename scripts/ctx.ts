@@ -1,0 +1,1 @@
+import web3-core from '@derivation-tech/web3-core';
